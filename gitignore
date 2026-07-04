@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.env
+.venv
+
+# Flask
+instance/
+.webassets-cache
+flask_session/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints
+*.ipynb
+
+# Environment Variables
+.env
+.env.local
+*.env
+
+# Logs
+*.log
+logs/
+
+# Database
+*.db
+*.sqlite3
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db

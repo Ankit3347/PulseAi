@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PulseAI — AI-Powered Health Predictions</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='SCSS/style.css') }}">
+  <link href="https://pro.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="toast-stack" id="toastStack"></div>
+<nav class="navbar"><div class="nav-inner">
+  <a href="/" class="nav-brand"><div class="brand-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><polyline points="2,12 5,12 7,6 9,18 11,10 13,14 15,12 22,12" stroke="#07070f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="brand-name">Pulse<span class="acc">AI</span></span></a>
+  <ul class="nav-links"><li><a href="/" class="active">How It Works</a></li><li><a href="about">About</a></li><li><a href="test">Psychology Test</a></li><li><a href="users">Users</a></li></ul>
+  <div class="nav-actions"><a href="predict" class="btn btn-primary btn-sm">Get Started</a><button class="hamburger" id="hamburger"><span></span><span></span><span></span></button></div>
+</div></nav>
+<div class="mobile-nav" id="mobileNav"><a href="/" class="active">How It Works</a><a href="about">About</a><a href="test">Psychology Test</a><a href="users">Users</a><a href="predict" class="btn btn-primary" style="margin-top:8px;border-radius:10px">Get Started</a></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-badge-wrap"><span class="badge"><span class="badge-dot"></span>AI-Powered &middot; 41 Diseases &middot; 132 Symptoms</span></div>
+    <h1 class="hero-title">Your Health,<br><span class="gradient-text">Decoded.</span></h1>
+    <p class="hero-sub">Enter your symptoms. PulseAI's machine learning engine predicts diseases and delivers medications, diets, and workouts — instantly.</p>
+    <div class="hero-btns">
+      <a href="predict" class="btn btn-primary btn-lg"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><polyline points="2,12 5,12 7,6 9,18 11,10 13,14 15,12 22,12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Start Diagnosis</a>
+      <a href="about" class="btn btn-ghost btn-lg">Learn More</a>
+    </div>
+    <div class="hero-ecg"><svg class="ecg-svg" viewBox="0 0 800 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="glow"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        <filter id="dotglow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        <linearGradient id="ecgGrad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#00d4aa" stop-opacity="0"/>
+          <stop offset="20%" stop-color="#00d4aa"/>
+          <stop offset="80%" stop-color="#a855f7"/>
+          <stop offset="100%" stop-color="#a855f7" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <!-- glow layer -->
+      <path class="ecg-glow" filter="url(#glow)"
+        d="M0,55 L60,55 L90,55 L110,10 L130,100 L150,20 L170,70 L190,55 L240,55 L280,20 L300,90 L320,15 L340,65 L360,55 L420,55 L460,25 L480,85 L500,18 L520,68 L540,55 L600,55 L640,30 L660,80 L680,20 L700,60 L720,55 L800,55"
+        stroke="url(#ecgGrad)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.35"/>
+      <!-- main line -->
+      <path class="ecg-line" id="ecgPath"
+        d="M0,55 L60,55 L90,55 L110,10 L130,100 L150,20 L170,70 L190,55 L240,55 L280,20 L300,90 L320,15 L340,65 L360,55 L420,55 L460,25 L480,85 L500,18 L520,68 L540,55 L600,55 L640,30 L660,80 L680,20 L700,60 L720,55 L800,55"
+        stroke="url(#ecgGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <!-- traveling dot -->
+      <circle id="ecgDot" r="5" fill="#f43f5e" filter="url(#dotglow)" opacity="0">
+        <animateMotion id="dotMotion" dur="3s" begin="0s" fill="freeze" calcMode="linear">
+          <mpath href="#ecgPath"/>
+        </animateMotion>
+        <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.05;0.1;1" dur="3s" fill="freeze"/>
+        <animate attributeName="r" values="5;5;5" dur="3s" fill="freeze"/>
+      </circle>
+      <!-- dot glow ring -->
+      <circle id="ecgRing" r="10" fill="none" stroke="#f43f5e" stroke-width="1.5" opacity="0">
+        <animateMotion dur="3s" begin="0s" fill="freeze" calcMode="linear">
+          <mpath href="#ecgPath"/>
+        </animateMotion>
+        <animate attributeName="opacity" values="0;0;0.4;0.4" keyTimes="0;0.05;0.1;1" dur="3s" fill="freeze"/>
+        <animate attributeName="r" values="8;12;10;12;10" dur="1.5s" begin="3s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.4;0.1;0.4;0.1;0.4" dur="1.5s" begin="3s" repeatCount="indefinite"/>
+      </circle>
+    </svg></div>
+  </div>
+  <div class="stats-bar">
+    <div class="stat-item"><span class="stat-num" data-target="41">0</span><span class="stat-label">Diseases Covered</span></div>
+    <div class="stat-item"><span class="stat-num" data-target="132">0</span><span class="stat-label">Symptom Inputs</span></div>
+    <div class="stat-item"><span class="stat-num" data-target="98">0</span><span class="stat-label">% Model Accuracy</span></div>
+    <div class="stat-item"><span class="stat-num" data-target="6">0</span><span class="stat-label">Output Categories</span></div>
+  </div>
+</section>
+<hr class="divider">
+
+<!-- HOW IT WORKS -->
+<section class="section"><div class="container">
+  <div class="section-head"><span class="section-tag">Process</span><h2 class="section-title">How does it <span class="gradient-text">work?</span></h2><p class="section-sub">Three simple steps from symptoms to a full health report.</p></div>
+  <div class="steps-grid">
+    <div class="step-card"><div class="step-top-line"></div><div class="step-num">Step 01</div><div class="step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" stroke="#00d4aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="step-title">Enter Symptoms</div><p class="step-desc">Select from 132 clinically validated symptoms. Add up to 5 for the most accurate prediction from our ML model.</p></div>
+    <div class="step-card"><div class="step-top-line"></div><div class="step-num">Step 02</div><div class="step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#00d4aa" stroke-width="2"/><path d="M12 8v4l3 3" stroke="#00d4aa" stroke-width="2" stroke-linecap="round"/></svg></div><div class="step-title">AI Prediction</div><p class="step-desc">Our Support Vector Classifier trained on thousands of cases maps your symptoms to the most likely diagnosis instantly.</p></div>
+    <div class="step-card"><div class="step-top-line"></div><div class="step-num">Step 03</div><div class="step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z" stroke="#00d4aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="step-title">Full Health Report</div><p class="step-desc">Get disease info, precautions, medications, tailored diets, and workout plans — all in one place.</p></div>
+  </div>
+</div></section>
+<hr class="divider">
+
+<!-- FEATURES BENTO -->
+<section class="section"><div class="container">
+  <div class="section-head"><span class="section-tag">Features</span><h2 class="section-title">Everything your health <span class="gradient-text">needs</span></h2></div>
+  <div class="features-bento">
+    <div class="feat-card wide"><div class="feat-icon" style="width:56px;height:56px;border-radius:16px;flex-shrink:0"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><polyline points="2,12 5,12 7,6 9,18 11,10 13,14 15,12 22,12" stroke="#00d4aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><h4>Symptoms → Disease Prediction</h4><p>Our SVC model maps your inputs to one of 41 diseases with clinical-grade accuracy. Real machine learning on real medical data.</p></div></div>
+    <div class="feat-card"><div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z" stroke="#00d4aa" stroke-width="2"/><path d="M9 12h6M12 9v6" stroke="#00d4aa" stroke-width="2" stroke-linecap="round"/></svg></div><h4>Medications</h4><p>Evidence-based medication suggestions matched to your predicted condition.</p></div>
+    <div class="feat-card"><div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="#00d4aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h4>Psychology Test</h4><p>10-minute timed MCQ test covering key psychology concepts with instant scoring.</p></div>
+    <div class="feat-card"><div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="#00d4aa" stroke-width="2" stroke-linecap="round"/></svg></div><h4>Diet Plans</h4><p>Condition-specific dietary recommendations to support your recovery and wellness.</p></div>
+    <div class="feat-card"><div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#00d4aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h4>Precautions</h4><p>Actionable steps to prevent worsening or spreading of your predicted condition.</p></div>
+    <div class="feat-card"><div class="feat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#00d4aa" stroke-width="2"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01" stroke="#00d4aa" stroke-width="2" stroke-linecap="round"/></svg></div><h4>Workout Plans</h4><p>Safe, condition-aware exercise routines to keep you active during recovery.</p></div>
+  </div>
+</div></section>
+<hr class="divider">
+
+<!-- CONTACT -->
+<section class="contact-section"><div class="container">
+  <div class="section-head"><span class="section-tag">Contact</span><h2 class="section-title">Get in <span class="gradient-text">touch</span></h2><p class="section-sub">Have feedback, questions, or want to collaborate? Reach out.</p></div>
+  <div class="contact-grid">
+    <div class="contact-info-side">
+      <h2>Let's <span class="gradient-text">connect</span></h2>
+      <p>I'm Ankit Prajapati — the developer behind PulseAI. Feel free to reach out for collaborations, feedback, or opportunities.</p>
+      <div class="contact-links-list">
+        <a href="mailto:ankitprajapati893@gmail.com" class="c-link"><div class="c-link-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="#00d4aa" stroke-width="2"/><polyline points="22,6 12,13 2,6" stroke="#00d4aa" stroke-width="2" stroke-linecap="round"/></svg></div><div><div class="c-link-label">Email</div><div class="c-link-val">ankitprajapati893@gmail.com</div></div></a>
+        <a href="https://www.linkedin.com/in/ankitprajapati3347" target="_blank" class="c-link"><div class="c-link-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" stroke="#00d4aa" stroke-width="2" stroke-linecap="round"/><rect x="2" y="9" width="4" height="12" stroke="#00d4aa" stroke-width="2"/><circle cx="4" cy="4" r="2" stroke="#00d4aa" stroke-width="2"/></svg></div><div><div class="c-link-label">LinkedIn</div><div class="c-link-val">linkedin.com/in/ankitprajapati3347</div></div></a>
+        <a href="https://github.com/ankit3347" target="_blank" class="c-link"><div class="c-link-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" stroke="#00d4aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="c-link-label">GitHub</div><div class="c-link-val">github.com/ankit3347</div></div></a>
+      </div>
+    </div>
+    <div class="contact-form-card">
+      <h3>Send a message</h3><p class="sub">I usually respond within 24 hours.</p>
+      <div class="form-row"><div class="form-field"><label>Name</label><input type="text" placeholder="Your name"></div><div class="form-field"><label>Email</label><input type="email" placeholder="your@email.com"></div></div>
+      <div class="form-field"><label>Subject</label><input type="text" placeholder="What's this about?"></div>
+      <div class="form-field"><label>Message</label><textarea placeholder="Tell me more..."></textarea></div>
+      <button class="btn btn-primary btn-full" onclick="showToast('Message sent! I\'ll get back to you soon.','success')">Send Message</button>
+    </div>
+  </div>
+</div></section>
+
+<!-- FOOTER -->
+<footer class="footer"><div class="container"><div class="footer-inner">
+  <div class="footer-left"><a href="/" class="nav-brand" style="gap:8px"><div class="brand-icon" style="width:26px;height:26px;border-radius:7px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><polyline points="2,12 5,12 7,6 9,18 11,10 13,14 15,12 22,12" stroke="#07070f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="brand-name" style="font-size:15px">Pulse<span class="acc">AI</span></span></a><span class="footer-copy">© 2024 Ankit Prajapati. All rights reserved.</span></div>
+  <div class="footer-links"><a href="/">Home</a><a href="about">About</a><a href="predict">Diagnose</a><a href="test">Psychology</a><a href="users">Users</a></div>
+</div></div></footer>
+
+<script>
+const ham=document.getElementById('hamburger'),mob=document.getElementById('mobileNav');
+ham.addEventListener('click',()=>mob.classList.toggle('open'));
+function showToast(msg,type='success'){const s=document.getElementById('toastStack'),t=document.createElement('div');t.className='toast'+(type==='warn'?' warn':type==='err'?' err':'');t.innerHTML=`<div class="toast-dot"></div><span>${msg}</span>`;s.appendChild(t);setTimeout(()=>t.remove(),4000);}
+function animateCounters(){document.querySelectorAll('.stat-num[data-target]').forEach(el=>{const target=+el.dataset.target;let count=0;const step=Math.ceil(target/60);const timer=setInterval(()=>{count=Math.min(count+step,target);el.textContent=count;if(count>=target)clearInterval(timer);},25);});}
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){animateCounters();obs.disconnect();}});},{threshold:0.3});
+const sb=document.querySelector('.stats-bar');if(sb)obs.observe(sb);
+</script>
+</body></html>

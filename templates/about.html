@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — PulseAI</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='SCSS/style.css') }}">
+  <link href="https://pro.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet"/>
+</head>
+<body>
+<nav class="navbar"><div class="nav-inner">
+  <a href="/" class="nav-brand"><div class="brand-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><polyline points="2,12 5,12 7,6 9,18 11,10 13,14 15,12 22,12" stroke="#07070f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="brand-name">Pulse<span class="acc">AI</span></span></a>
+  <ul class="nav-links"><li><a href="/">How It Works</a></li><li><a href="about" class="active">About</a></li><li><a href="test">Psychology Test</a></li><li><a href="users">Users</a></li></ul>
+  <div class="nav-actions"><a href="predict" class="btn btn-primary btn-sm">Get Started</a><button class="hamburger" id="hamburger"><span></span><span></span><span></span></button></div>
+</div></nav>
+<div class="mobile-nav" id="mobileNav"><a href="/">How It Works</a><a href="about" class="active">About</a><a href="test">Psychology Test</a><a href="users">Users</a><a href="predict" class="btn btn-primary" style="margin-top:8px;border-radius:10px">Get Started</a></div>
+
+<div class="page-banner">
+  <div class="container">
+    <span class="section-tag">Our Story</span>
+    <h1>About <span class="gradient-text">PulseAI</span></h1>
+    <p>Where health meets technology for a brighter, healthier future.</p>
+  </div>
+</div>
+
+<section class="section"><div class="container">
+  <div class="about-grid">
+    <div class="about-card"><div class="about-icon">🏥</div><div><h4>Welcome to PulseAI</h4><p>We are a dedicated team of healthcare professionals, data scientists, and technology enthusiasts with a common goal — make healthcare accessible, understandable, and personalized for everyone.</p></div></div>
+    <div class="about-card"><div class="about-icon">👁️</div><div><h4>Our Vision</h4><p>We envision a world where access to healthcare information is not just a luxury but a fundamental right. Our journey began with a simple yet powerful idea: empower individuals with knowledge and tools to take control of their health.</p></div></div>
+    <div class="about-card"><div class="about-icon">👥</div><div><h4>Who We Are</h4><p>A dedicated team of healthcare professionals, data scientists, and technology enthusiasts with extensive experience in both healthcare and cutting-edge AI technology.</p></div></div>
+    <div class="about-card"><div class="about-icon">🎯</div><div><h4>Our Mission</h4><p>To provide a seamless and intuitive platform that harnesses AI and machine learning to identify potential health concerns based on your reported symptoms, while offering a wealth of educational resources.</p></div></div>
+    <div class="about-card"><div class="about-icon">⚙️</div><div><h4>How We Do It</h4><p>Our platform uses a robust SVC machine learning model trained on a vast dataset of symptoms and diseases. By inputting your symptoms, our system generates accurate predictions about potential illnesses.</p></div></div>
+    <div class="about-card"><div class="about-icon">❤️</div><div><h4>Your Well-being, Our Priority</h4><p>Your health is our top priority. We provide not only accurate predictions but also comprehensive information — descriptions, precautions, medications, dietary advice, and workout tips.</p></div></div>
+  </div>
+</div></section>
+<hr class="divider">
+
+<!-- Tech Stack -->
+<section class="section"><div class="container">
+  <div class="section-head"><span class="section-tag">Technology</span><h2 class="section-title">Built with <span class="gradient-text">precision</span></h2></div>
+  <div class="steps-grid">
+    <div class="step-card"><div class="step-top-line"></div><div class="step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke="#00d4aa" stroke-width="2"/><path d="M12 8v4l3 3" stroke="#00d4aa" stroke-width="2" stroke-linecap="round"/></svg></div><div class="step-title">Python & Flask</div><p class="step-desc">Backend powered by Python with Flask framework for seamless API routing and ML model serving.</p></div>
+    <div class="step-card"><div class="step-top-line"></div><div class="step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="#00d4aa" stroke-width="2"/><line x1="8" y1="21" x2="16" y2="21" stroke="#00d4aa" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="17" x2="12" y2="21" stroke="#00d4aa" stroke-width="2" stroke-linecap="round"/></svg></div><div class="step-title">Scikit-learn SVC</div><p class="step-desc">Support Vector Classifier trained on the Kaggle Medicine Recommendation Dataset with 98% accuracy.</p></div>
+    <div class="step-card"><div class="step-top-line"></div><div class="step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" stroke="#00d4aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="step-title">Pandas & NumPy</div><p class="step-desc">Data manipulation, preprocessing, and feature engineering handled by Pandas and NumPy pipelines.</p></div>
+  </div>
+</div></section>
+<hr class="divider">
+
+<!-- Contact -->
+<section class="contact-section"><div class="container">
+  <div class="section-head"><span class="section-tag">Developer</span><h2 class="section-title">Meet <span class="gradient-text">Ankit Prajapati</span></h2><p class="section-sub">The developer and designer behind PulseAI.</p></div>
+  <div class="contact-grid">
+    <div class="contact-info-side">
+      <h2>Let's <span class="gradient-text">connect</span></h2>
+      <p>I built PulseAI to bridge the gap between healthcare and accessible AI technology. Open to collaborations, feedback, and opportunities.</p>
+      <div class="contact-links-list">
+        <a href="mailto:ankitprajapati893@gmail.com" class="c-link"><div class="c-link-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="#00d4aa" stroke-width="2"/><polyline points="22,6 12,13 2,6" stroke="#00d4aa" stroke-width="2" stroke-linecap="round"/></svg></div><div><div class="c-link-label">Email</div><div class="c-link-val">ankitprajapati893@gmail.com</div></div></a>
+        <a href="https://www.linkedin.com/in/ankitprajapati3347" target="_blank" class="c-link"><div class="c-link-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" stroke="#00d4aa" stroke-width="2" stroke-linecap="round"/><rect x="2" y="9" width="4" height="12" stroke="#00d4aa" stroke-width="2"/><circle cx="4" cy="4" r="2" stroke="#00d4aa" stroke-width="2"/></svg></div><div><div class="c-link-label">LinkedIn</div><div class="c-link-val">linkedin.com/in/ankitprajapati3347</div></div></a>
+        <a href="https://github.com/ankit3347" target="_blank" class="c-link"><div class="c-link-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" stroke="#00d4aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="c-link-label">GitHub</div><div class="c-link-val">github.com/ankit3347</div></div></a>
+      </div>
+    </div>
+    <div class="contact-form-card">
+      <h3>Send a message</h3><p class="sub">I usually respond within 24 hours.</p>
+      <div class="form-row"><div class="form-field"><label>Name</label><input type="text" placeholder="Your name"></div><div class="form-field"><label>Email</label><input type="email" placeholder="your@email.com"></div></div>
+      <div class="form-field"><label>Message</label><textarea placeholder="Your message..."></textarea></div>
+      <button class="btn btn-primary btn-full" onclick="alert('Thanks! Feature coming soon.')">Send Message</button>
+    </div>
+  </div>
+</div></section>
+
+<footer class="footer"><div class="container"><div class="footer-inner">
+  <div class="footer-left"><a href="/" class="nav-brand" style="gap:8px"><div class="brand-icon" style="width:26px;height:26px;border-radius:7px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><polyline points="2,12 5,12 7,6 9,18 11,10 13,14 15,12 22,12" stroke="#07070f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="brand-name" style="font-size:15px">Pulse<span class="acc">AI</span></span></a><span class="footer-copy">© 2024 Ankit Prajapati. All rights reserved.</span></div>
+  <div class="footer-links"><a href="/">Home</a><a href="predict">Diagnose</a><a href="test">Psychology</a><a href="users">Users</a></div>
+</div></div></footer>
+<script>const ham=document.getElementById('hamburger'),mob=document.getElementById('mobileNav');ham.addEventListener('click',()=>mob.classList.toggle('open'));</script>
+</body></html>
